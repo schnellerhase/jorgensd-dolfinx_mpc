@@ -26,16 +26,13 @@ jobs:
             linux-gnu-real64-32,
             linux-gnu-real32-32,
           ]
-        # Due to: https://gitlab.com/petsc/petsc/-/issues/1288
-        CXX: [c++]
-        #, clang++]
-        CC: [cc]
-        #, clang]
-        # exclude:
-        #   - CC: cc
-        #     CXX: clang++
-        #   - CC: clang
-        #     CXX: c++
+        CC: [cc, clang]
+        CXX: [c++, clang++]
+        exclude:
+          - CC: cc
+            CXX: clang++
+          - CC: clang
+            CXX: c++
     env:
       DOLFINX_BRANCH: main
       BASIX_BRANCH: main
